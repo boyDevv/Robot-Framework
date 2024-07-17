@@ -3,18 +3,10 @@ Library     SeleniumLibrary
 
 
 *** Keywords ***
-input email
-    [Arguments]    ${data}
-    Input Text    name=email   ${data}
-
 input firstname and input lastname
     [Arguments]    ${fname}    ${lname}
     Input Text    name=firstName    ${fname}
     Input Text    name=lastName    ${lname}
-
-input phone
-    [Arguments]    ${data}
-    Input Text    name=phoneNumber    ${data}
 
 input newpassword and input confirmpassword
     [Arguments]    ${data}

@@ -12,13 +12,13 @@ Suite Teardown    Close Browser
 *** Test Cases ***
 Register 
     common.Wait until element is ready then click element    //button[text()="สมัครสมาชิก"]  
-    registerKeywords.input email    ${email}
+    common.Wail until element is readt then input data    name=email    ${email}    
     registerKeywords.input firstname and input lastname    ${fname}    ${lname}
-    registerKeywords.input phone    ${phone}
+    common.Wail until element is readt then input data    name=phoneNumber    ${phone}
     registerKeywords.input newpassword and input confirmpassword    ${password}
     registerKeywords.select consent
     registerKeywords.click button confirm register
     ${data}    Wait Until Keyword Succeeds    2x    4s   Get Text    //*[@class='text-center']
     Should Be Equal   ระบบได้ส่งรหัส OTP ไปยังเบอร์โทรศัพท์XX-XXXX-0001     ${data}
-    Sleep    5s
+
     
