@@ -16,8 +16,8 @@ Register Member
     common.Wail until element is ready then input data    name=firstName    ${fname}
     common.Wail until element is ready then input data    name=lastName    ${lname}
     common.Wail until element is ready then input data    name=phoneNumber    ${phone}
-    common.Wail until element is ready then input data    name=newPassword    ${password}
-    common.Wail until element is ready then input data    name=confirmPassword    ${password}
+    common.Wail until element is ready then input password    name=newPassword    ${password}
+    common.Wail until element is ready then input password   name=confirmPassword    ${password}
     common.Wail until element is ready then check box    name=consent
     common.Wait until element is ready then click element    //button[@type="submit" and text()="สมัครสมาชิก"]
     ${text}  common.Wail until element is ready then get text      //*[@class='text-center']
