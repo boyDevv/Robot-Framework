@@ -1,24 +1,25 @@
 *** Settings ***
-Library             SeleniumLibrary
-Resource            ../keywords/common.robot
-Resource            ../keywords//registerKeywords.robot
-Variables           ../resources/config.yaml
-Variables           ../resources/testdata.yaml
+Resource    ../resources/import.robot
 
-Suite Setup         Open Browser    ${url}    chrome
+Suite Setup         Open Browser    ${url}    chrome    
 Suite Teardown      Close Browser
 
 
 *** Test Cases ***
 Register Member
-    common.Wait until element is ready then click element    //button[text()="สมัครสมาชิก"]
-    common.Wail until element is ready then input data    name=email    ${email}
-    common.Wail until element is ready then input data    name=firstName    ${fname}
-    common.Wail until element is ready then input data    name=lastName    ${lname}
-    common.Wail until element is ready then input data    name=phoneNumber    ${phone}
-    common.Wail until element is ready then input password    name=newPassword    ${password}
-    common.Wail until element is ready then input password   name=confirmPassword    ${password}
-    common.Wail until element is ready then check box    name=consent
-    common.Wait until element is ready then click element    //button[@type="submit" and text()="สมัครสมาชิก"]
-    ${text}  common.Wail until element is ready then get text      //*[@class='text-center']
-    Should Be Equal    ระบบได้ส่งรหัส OTP ไปยังเบอร์โทรศัพท์XX-XXXX-0001    ${text}
+    Maximize Browser Window
+
+    homepage.Wait until element is ready then click element    ${Register_button}
+
+    registerKeywords.Wail until element is ready then input data    ${Email_field}    ${email}
+    registerKeywords.Wail until element is ready then input data    ${Firstname_field}    ${fname}
+    registerKeywords.Wail until element is ready then input data    ${Lastname_field}    ${lname}
+    registerKeywords.Wail until element is ready then input data    ${Phone_field}    ${phone}
+    registerKeywords.Wail until element is ready then input password    ${Password_field}    ${password}
+    registerKeywords.Wail until element is ready then input password   ${Connfirm_password_field}    ${password}
+    registerKeywords.Wail until element is ready then check box    ${Consent_field} 
+    
+    homepage.Wait until element is ready then click element    ${Register_button} 
+
+    ${text}  common.Wail until element is ready then get text      ${Text_center_field} 
+    Should Be Equal    ${text_center}    ${text}
