@@ -4,5 +4,7 @@ Resource            ../keywords/common.robot
 Resource            ../keywords//registerKeywords.robot
 Resource            ../keywords/homepage.robot
 Resource            ../resources/loactor.robot
-Variables           ../resources/config.yaml
+Resource            ../keywords/login_demo.robot
+Resource            ../keywords/add_product.robot
 Variables           ../resources/testdata.yaml
+Variables           ../resources/config.yaml
